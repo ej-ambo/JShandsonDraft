@@ -325,7 +325,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           color: [255, 255, 255, 0.5],
         },
       };
-      const less1300000 = {
+      const less1200000 = {
         type: "simple-fill", 
         color: "#2171b5",
         style: "solid",
@@ -334,7 +334,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           color: [255, 255, 255, 0.5],
         },
       };
-      const more1300000 = {
+      const more1200000 = {
         type: "simple-fill",
         color: "#084594",
         style: "solid",
@@ -357,7 +357,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 シンボルを定義しただけではまだ見た目に変化はありません。シンボルを用いてレンダラーを設定して見た目が変わるようにします。
 
 ```html
-      const more1300000 = {
+      const more1200000 = {
         type: "simple-fill",
         color: "#084594",
         style: "solid",
@@ -404,13 +404,13 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           {
             minValue: 800000,
             maxValue: 1200000,
-            symbol: less1300000,
+            symbol: less1200000,
             label: "80万世帯～120万世帯"
           },
           {
             minValue: 1200000,
             maxValue: 99999999,
-            symbol: more1300000,
+            symbol: more1200000,
             label: "120万世帯以上"
           }
         ],
@@ -563,7 +563,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           color: [255, 255, 255, 0.5],
         },
       };
-      const less1300000 = {
+      const less1200000 = {
         type: "simple-fill", 
         color: "#2171b5",
         style: "solid",
@@ -572,7 +572,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           color: [255, 255, 255, 0.5],
         },
       };
-      const more1300000 = {
+      const more1200000 = {
         type: "simple-fill",
         color: "#084594",
         style: "solid",
@@ -619,13 +619,13 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           {
             minValue: 800000,
             maxValue: 1200000,
-            symbol: less1300000,
+            symbol: less1200000,
             label: "80万世帯～120万世帯"
           },
           {
             minValue: 1200000,
             maxValue: 99999999,
-            symbol: more1300000,
+            symbol: more1200000,
             label: "120万世帯以上"
           }
         ],
