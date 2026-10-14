@@ -1,10 +1,10 @@
-# ArcGIS における Web コンポーネント勉強会：Web コンポーネント ハンズオン
+# Web コンポーネントでつくるモダンな地図アプリ開発入門ハンズオン
 
 # 概要
-このガイドは ArcGIS で使用できる Web コンポーネント（[ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/)、[Calcite Design System](https://developers.arcgis.com/calcite-design-system/)）を使用して、Web アプリケーションを作成する流れを紹介します。このハンズオンではコピー & ペーストで Web アプリケーションを作成できます。コメントアウトの「手順 x-x ～ Start 」から「手順 x-x ～ End 」までをコピーし、該当箇所にペーストしてください。（※一部 Start から End による追記ではなくコードの書き換え箇所があります。）
+このハンズオンは ArcGIS で使用できる Web コンポーネント（[ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/)、[Calcite Design System](https://developers.arcgis.com/calcite-design-system/)）を使用して、Web アプリケーションを作成する流れを紹介します。ハンズオンの各手順で、コメントの「手順 x-x ～ Start 」から「手順 x-x ～ End 」までをコピーし、該当箇所にペーストしてください。（※一部 Start から End による追記ではなくコードの書き換え箇所があります。）
 
 # 準備
-## プロジェクトの準備
+## HTML の準備
 1. [CodePen](https://codepen.io/pen/?editors=1000) を任意の Web ブラウザーで開きます。
 
 2. `CodePen` の HTML エディターに以下のコードを記述します。
@@ -13,15 +13,13 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web コンポーネント ハンズオン</title>
     <style>
-      html, body, arcgis-map {
+      html, body {
         width:100%;
         height:100%;
         margin:0;
         padding:0;
-        display:
       }
     </style>
   </head>
@@ -37,7 +35,7 @@
 
 ## 手順 1 ： 必要なライブラリーの追加
 
-ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for JavaScript` と `Calcite Design System` のライブラリーを追加します。
+`ArcGIS Maps SDK for JavaScript` と `Calcite Design System` のライブラリーの参照を追加します。
 
 1. `<head>` タグ内の `</style>` の下に以下のコードを追記します。
 ```html
@@ -45,7 +43,7 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
     <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 Start -->
     <!-- CDN から ArcGIS Maps SDK for JavaScript を読み込む -->
-    <script type="module" src="https://js.arcgis.com/5.0/"></script>
+    <script type="module" src="https://js.arcgis.com/5.1/"></script>
     <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 End -->
 
   </head>
@@ -54,8 +52,8 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 これで Web ページ内で `ArcGIS Maps SDK for JavaScript` と `Calcite Design System` を使用する準備ができました。  
 準備ができたらはじめに `ArcGIS Maps SDK for JavaScript` の Web コンポーネントであるマップ コンポーネントを使用してマップを表示していきます。
 
-# ArcGIS Maps SDK for JavaScript のマップ コンポーネントを使用してマップを表示する。
-## 手順 2  : 画面上にマップを表示する。
+# ArcGIS Maps SDK for JavaScript のマップ コンポーネントを使用してマップを表示
+## 手順 2  : 画面上にマップを表示
 
 `ArcGIS Maps SDK for JavaScript` のマップ コンポーネントを使用して画面上に地図を表示します。
 
@@ -72,14 +70,26 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
   </body>
 ```
 
+2. スタイルに `arcgis-map` を追加します。
+``` html
+    <!-- Befor -->
+    <!-- 
+     html, body {
+    -->
+    <!-- 手順 2-2 style に arcgis-map を追加 -->
+    <!-- After -->
+     html, body, arcgis-map {
+```
+
+
 ここでは、[マップ コンポーネント](https://developers.arcgis.com/javascript/latest/references/map-components/)とマップ上に[拡大・縮小ボタン](https://developers.arcgis.com/javascript/latest/references/map-components/arcgis-zoom/)を設定しています。
 ブラウザーを更新すると以下のように日本列島を中心とするマップの画面が表示されます。
 
 ![手順 2 : 画面上にマップを表示](./img/step2.png)
 
-## 手順 3 : マップ上にフィーチャ レイヤーを重ねる
+## 手順 3 : マップ上にフィーチャ レイヤーを追加
 
-表示したマップ上に[フィーチャ レイヤー](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html)を重ね、任意のフィーチャをクリックした際にアラートでクリックしたフィーチャ情報を表示する処理を追加します。
+表示したマップ上に[フィーチャ レイヤー](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html)を追加し、さらに任意のフィーチャをクリックした際にアラートを使ってクリックしたフィーチャ情報を表示する処理を追加します。
 
 1. `<body>` タグ内にある `<script>` タグの属性として以下のように `type="module"` を追記します。
 ```html
@@ -93,7 +103,7 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
     <script type="module"></script>
   </body>
 ```
-`<script>` タグに `type="module"` を指定すると、そのスクリプトは `ES モジュール`として実行されます。これにより、通常のスクリプトでは使えないトップレベルでの `await` が使えるようになります。
+`<script>` タグに `type="module"` を指定すると、そのスクリプトは `ES モジュール`として実行されます。これにより、CDN を使ってモジュールをインポートする際に  `await` 演算子 が使えるようになります。
 
 2. `<script>` タグ内に以下のコードを記述します。
 
@@ -106,7 +116,9 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
       // FeatureLayer クラスのインスタンスを作成
       const layer = new FeatureLayer({
-          url: "https://services.arcgis.com/wlVTGRSYTzAbjjiC/arcgis/rest/services/ZENKOKU_PREF_view/FeatureServer",
+          portalItem: {
+            id: "d473d15a95e1420c96e2063d48720ef3"
+          },
           outFields: ["*"]
       });
 
@@ -137,9 +149,8 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 ```
 
 ブラウザーを更新すると以下のように都道府県レイヤーが表示され、任意の都道府県フィーチャをクリックすると画面上部にクリックしたフィーチャの情報が表示されます。
+このデータは 2024 年 4 月 1 日時点の市区町村界情報を使用した ArcGIS Living Atlas のデータで無償で利用できます 。 データの詳細は[アイテム ページ](https://esrij.maps.arcgis.com/home/item.html?id=d473d15a95e1420c96e2063d48720ef3#overview)を参照してください。
 
-> [!IMPORTANT]  
-> CDN にて ArcGIS Maps SDK for JavaScript のモジュールを利用する方法として、バージョン 4.32 までは AMD による require 関数を用いていましたが、バージョン 4.33 より ES モジュールのように利用する arcgis.import 関数による利用する方法が追加されました。
 
 ![手順 3 : マップ上にフィーチャ レイヤーを重ねる](./img/step3.png)
 
@@ -159,7 +170,7 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
       <!-- 手順 2-1 マップ コンポーネント： topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
       <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
-        <arcgis-zoom position="top-left"></arcgis-zoom>
+        <arcgis-zoom slot="top-left"></arcgis-zoom>
       </arcgis-map>
       <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
     <!-- 手順 4-1-2 Calcite Design System の Shell コンポーネントを追加 Start -->
@@ -168,10 +179,9 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
     <!-- 手順 3-1 <script> タグの属性として type="module" を追記する -->
     <script type="module">
-  </body>
 ```
 
-ここでは、[シェル コンポーネント](https://developers.arcgis.com/calcite-design-system/components/shell/)を追加しています。シェル コンポーネント内にマップ コンポーネント以外の要素が無いため変化はありません。
+ここでは、[シェル コンポーネント](https://developers.arcgis.com/calcite-design-system/components/shell/)を追加しています。シェル コンポーネントはアプリケーション全体のレイアウトを構成するための土台となるコンポーネントですが、コンポーネント内にマップ コンポーネント以外の要素が無いためここでの変化はありません。 
 
 2. `<calcite-shell>` タグ内で `<arcgis-map>` タグの上に以下のコードを追記します。
 
@@ -186,7 +196,7 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
     <!-- Nabigation コンポーネント -->
     <calcite-navigation slot="header">
       <!-- Nabigation Logo コンポーネント -->
-      <calcite-navigation-logo heading="Web コンポーネント ハンズオン デモ" heading-level="3" thumbnail="./img/js-sdk.svg"
+      <calcite-navigation-logo heading="Web コンポーネント ハンズオン デモ" heading-level="3"
         slot="logo">
       </calcite-navigation-logo>
     </calcite-navigation>
@@ -209,20 +219,20 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
     <!-- 手順 2-1 マップ コンポーネント： topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
     <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
-      <arcgis-zoom position="top-left"></arcgis-zoom>
+      <arcgis-zoom slot="top-left"></arcgis-zoom>
     </arcgis-map>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
 ```
 
-ここでは、ヘッダーの要素と右側に[シェル パネル](https://developers.arcgis.com/calcite-design-system/components/shell-panel/)と凡例の表示・非表示をするための[アクション ボタン](https://developers.arcgis.com/calcite-design-system/components/action/)、シェル パネル上に表示する[パネル](https://developers.arcgis.com/calcite-design-system/components/panel/)、パネル上に表示する[凡例](https://developers.arcgis.com/javascript/latest/references/map-components/arcgis-legend/)が定義されています。
+ここでは、ヘッダーの要素、画面右側に[シェル パネル](https://developers.arcgis.com/calcite-design-system/components/shell-panel/)、凡例の表示・非表示を切り替えるための[アクション ボタン](https://developers.arcgis.com/calcite-design-system/components/action/)、シェル パネル上に表示する[パネル](https://developers.arcgis.com/calcite-design-system/components/panel/)、パネル上に表示する[凡例](https://developers.arcgis.com/javascript/latest/references/map-components/arcgis-legend/)が定義されています。
 
-ブラウザーを更新すると以下のように先ほどのマップだけのデザインに加えて、ヘッダーと右側にシェル パネルの要素が追加されるのが分かります。ヘッダーとシェル パネルにはそれぞれ [slot](https://developers.arcgis.com/calcite-design-system/components/shell/#slots) プロパティが設定されており、その値によって表示位置が決まります。また、凡例のアクション ボタンには [icon](https://developers.arcgis.com/calcite-design-system/components/action/#api-reference-properties-icon) プロパティが設定されており Calcite Design System で用意されている[凡例のアイコン](https://developers.arcgis.com/calcite-design-system/icons/?query=legend)を表示しています。
+CodePen を更新すると以下のように先ほどのマップだけのデザインに加えて、ヘッダーと右側にシェル パネルの要素が追加されることが分かります。ヘッダーとシェル パネルにはそれぞれ [slot](https://developers.arcgis.com/calcite-design-system/components/shell/#slots) プロパティが設定されており、その値によって表示位置が決まります。また、凡例のアクション ボタンには [icon](https://developers.arcgis.com/calcite-design-system/components/action/#api-reference-properties-icon) プロパティが設定されており Calcite Design System で用意されている[凡例のアイコン](https://developers.arcgis.com/calcite-design-system/icons/?query=legend)を表示しています。
 
 ![手順 4-2 : Calcite コンポーネントで UI を追加](./img/step4-2.png)
 
-この画面で右側のシェル パネルの凡例アクション ボタンをクリックしてください。その際に何も変化がないことが確認できます。これは Calcite コンポーネントに対して処理が設定されていないためです。次の手順で Calcite コンポーネントにイベント処理を追加して凡例を表示・非表示を動的に変更するようにしていきます。
+この画面で右側のシェル パネルの凡例アクション ボタンをクリックしてください。何も変化がないことが確認できます。これは Calcite コンポーネントに対してクリックイベントの処理を追加していないためです。次の手順で Calcite コンポーネントにイベント処理を追加して凡例の表示・非表示を動的に変更するようにしていきます。
 
-3. `<script>` タグ内で`手順 3-2` に記述したコードの下に以下のコードを追記します。
+1. `<script>` タグ内で`手順 3-2` に記述したコードの下に以下のコードを追記します。
 ```html
     <script type="module">
       // ～～ 中略 ～～
@@ -271,15 +281,15 @@ ArcGIS で使用できる Web コンポーネントの `ArcGIS Maps SDK for Java
 
 ![手順 4-3 : 凡例の表示](./img/step4-3.png)
 
-Calcite コンポーネントにイベント処理を追加することで凡例アクション ボタンをクリックすることで凡例が表示・非表示になります。また、凡例の上部にある閉じる（×）ボタンをクリックした際に非表示になります。
+Calcite コンポーネントにイベント処理を追加することで凡例アクション ボタンをのクリック時に凡例の表示・非表示が切り替わります。また、凡例の上部にある閉じる（×）ボタンをクリックした際にも非表示になります。
 
 凡例アクション ボタンの[クリック イベント](https://developer.mozilla.org/ja/docs/Web/API/Element/click_event)は一般的な HTML のイベントを取得していますが、凡例を表示している凡例パネルの閉じる（×）ボタンのクリック イベントは Calcite コンポーネント（[パネル コンポーネント](https://developers.arcgis.com/calcite-design-system/components/panel/#events)）独自のイベントを取得して処理をしています。
 
-# オプション 1 : レンダラーを設定し、表示色を変更する
+# オプション 1 : レンダラーを設定し、表示色を変更
 先ほど表示した都道府県界データは一色で表示されていました。
 ここではシンボルとレンダラーを設定し、フィールドの属性値に応じて表示色を変更します。
 ## シンボルの設定
-表示の仕方を変えるために、まず塗りつぶしの色や輪郭線の幅、透明度などグラフィックの外観を表すシンボルを定義します。
+表示の方法を変えるために、まず塗りつぶしの色や輪郭線の幅、透明度などグラフィックの見た目を表すシンボルを定義します。
 今回は薄い青色から濃い青色にかけて複数のシンボルを定義します。
 
 ```html
@@ -342,6 +352,15 @@ Calcite コンポーネントにイベント処理を追加することで凡例
           color: [255, 255, 255, 0.5],
         },
       };
+      const defaultSym = {
+        type: "simple-fill", 
+        color: "black",
+        style: "backward-diagonal",
+        outline: {
+          width: 0.5,
+          color: [50, 50, 50, 0.5],
+        },
+      };
       // オプション 1-1 シンボルを定義する End
       
       // arcgis-map 要素の準備を待つ
@@ -372,15 +391,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
       const renderer = {
         type: "class-breaks", 
         field: "H_NUM", 
-        defaultSymbol: {
-          type: "simple-fill", 
-          color: "black",
-          style: "backward-diagonal",
-          outline: {
-            width: 0.5,
-            color: [50, 50, 50, 0.5],
-          },
-        },
+        defaultSymbol: defaultSym,
         defaultLabel: "no data",
         classBreakInfos: [
           {
@@ -431,9 +442,9 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 ![オプション 1 : 凡例パネルのヘッダー デザインの変更](./img/option1.png)
 
 
-# Calcite コンポーネントのデザインを変更する。
+# Calcite コンポーネントのデザインを変更
 
-## オプション 2 : ヘッダーの背景色を変更する。
+## オプション 2 : ヘッダーの背景色を変更
 1. `<style>` タグ内に新しいスタイル ルールを追記します。
 
 ```html
@@ -447,13 +458,13 @@ Calcite コンポーネントにイベント処理を追加することで凡例
       /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する End */
     </style>
 ```
-ブラウザーを更新すると以下のようにヘッダー部分の背景色が変更されているのが確認できます。
+CodePen を更新すると以下のようにヘッダー部分の背景色が変更されているのが確認できます。
 
 ![オプション 2 : 凡例パネルのヘッダー デザインの変更](./img/option2.png)
 
-パネル コンポーネントの要素に設定されている [CSS 変数](https://developers.arcgis.com/calcite-design-system/components/panel/#styles)を用いることでコンポーネントのデザインを変更することができます。このように Calcite コンポーネントのデザインを CSS 変数を用いることで変更することができます。
+パネル コンポーネントに設定されている [CSS 変数](https://developers.arcgis.com/calcite-design-system/components/panel/#styles)を用いることでコンポーネントのデザインを変更することができます。このように Calcite コンポーネントのデザインを CSS 変数を用いることで変更することができます。
 
-以上で、今回ご用意した手順は以上になります。今回の手順をなぞると以下のようなソースコードになります。手順に沿って進めてうまくいかなかったなどありましたら、以下のソースコードをご確認ください。
+今回ご用意した手順は以上になります。ここまでのの手順を完了すると以下のソースコードになります。
 ```html
 <html lang="ja">
   <head>
@@ -699,7 +710,5 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 </html>
 ```
 
-# さいごに
-お疲れ様です。  
-以上で、ハンズオンは終わりです。  
+# さいごに 
 このように ArcGIS では GIS 要素の Web コンポーネントとデザイン要素の Web コンポーネントが用意されています。これらを使うことで比較的容易に独自の Web アプリケーションを作成できますので、独自の Web アプリケーション開発に興味のある方は是非 ArcGIS で使用できる Web コンポーネントを活用して開発をしてみてください！
