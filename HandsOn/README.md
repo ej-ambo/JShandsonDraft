@@ -469,7 +469,6 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web コンポーネント ハンズオン</title>
     <style>
       html, body, arcgis-map {
@@ -477,7 +476,6 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
         height:100%;
         margin:0;
         padding:0;
-        display:
       }
       /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する Start */
       calcite-navigation {
@@ -485,9 +483,9 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
       }
       /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する End */
     </style>
-    <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 Start -->
+        <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 Start -->
     <!-- CDN から ArcGIS Maps SDK for JavaScript を読み込む -->
-    <script type="module" src="https://js.arcgis.com/5.0/"></script>
+    <script type="module" src="https://js.arcgis.com/5.1/"></script>
     <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 End -->
   </head>
   <body>
@@ -495,55 +493,54 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
     <!-- Shell コンポーネント -->
     <calcite-shell>
     <!-- 手順 4-1-1 Calcite Design System の Shell コンポーネントを追加 End -->
-
-      <!-- 手順 4-2 Shell にヘッダーとメニューを追加 Start -->
-      <!-- ヘッダー -->
-      <!-- Nabigation コンポーネント -->
-      <calcite-navigation slot="header">
-        <!-- Nabigation Logo コンポーネント -->
-        <calcite-navigation-logo heading="Web コンポーネント ハンズオン デモ" heading-level="3" thumbnail="./img/js-sdk.svg"
-          slot="logo">
-        </calcite-navigation-logo>
-      </calcite-navigation>
-      <!-- ヘッダー -->
-      <!-- メニュー -->
-      <!-- Shell Panel コンポーネント： パネル部分はデフォルトでは非表示 -->
-      <calcite-shell-panel slot="panel-end" position="end" display-mode="float-content" collapsed>
-        <calcite-action-bar slot="action-bar">
-          <!-- Action コンポーネント： 押下することで凡例の表示・非表示を行う（処理は後ほど JavaScript にて記述） -->
-          <calcite-action data-action-id="legend" icon="legend" text="凡例"></calcite-action>
-        </calcite-action-bar>
-        <!-- Panel コンポーネント： デフォルトでは非表示 -->
-        <calcite-panel heading="凡例" height-scale="l" data-panel-id="legend" closed closable>
-          <!-- 凡例コンポーネント： マップに設定されいているレイヤーの凡例を表示する -->
-          <arcgis-legend legend-style="classic" reference-element="mapEl"></arcgis-legend>
-        </calcite-panel>
-      </calcite-shell-panel>
-      <!-- メニュー -->
-      <!-- 手順 4-2 Shell にヘッダーとメニューを追加 End -->
-      
-      <!-- 手順 2-1 マップ コンポーネント： topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
-      <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
-        <arcgis-zoom position="top-left"></arcgis-zoom>
-      </arcgis-map>
-      <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
+    <!-- 手順 4-2 Shell にヘッダーとメニューを追加 Start -->
+    <!-- ヘッダー -->
+    <!-- Nabigation コンポーネント -->
+    <calcite-navigation slot="header">
+      <!-- Nabigation Logo コンポーネント -->
+      <calcite-navigation-logo heading="Web コンポーネント ハンズオン デモ" heading-level="3"
+        slot="logo">
+      </calcite-navigation-logo>
+    </calcite-navigation>
+    <!-- ヘッダー -->
+    <!-- メニュー -->
+    <!-- Shell Panel コンポーネント： パネル部分はデフォルトでは非表示 -->
+    <calcite-shell-panel slot="panel-end" position="end" display-mode="float-content" collapsed>
+      <calcite-action-bar slot="action-bar">
+        <!-- Action コンポーネント： 押下することで凡例の表示・非表示を行う（処理は後ほど JavaScript にて記述） -->
+        <calcite-action data-action-id="legend" icon="legend" text="凡例"></calcite-action>
+      </calcite-action-bar>
+      <!-- Panel コンポーネント： デフォルトでは非表示 -->
+      <calcite-panel heading="凡例" height-scale="l" data-panel-id="legend" closed closable>
+        <!-- 凡例コンポーネント： マップに設定されいているレイヤーの凡例を表示する -->
+        <arcgis-legend legend-style="classic" reference-element="mapEl"></arcgis-legend>
+      </calcite-panel>
+    </calcite-shell-panel>
+    <!-- メニュー -->
+    <!-- 手順 4-2 Shell にヘッダーとメニューを追加 End -->
+    <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
+    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
+      <arcgis-zoom position="top-left"></arcgis-zoom>
+    </arcgis-map>
+    <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
     <!-- 手順 4-1-2 Calcite Design System の Shell コンポーネントを追加 Start -->
     </calcite-shell>
     <!-- 手順 4-1-2 Calcite Design System の Shell コンポーネントを追加 End --> 
-
     <!-- 手順 3-1 <script> タグの属性として type="module" を追記する -->
     <script type="module">
-      // 手順 3-2 フィーチャ レイヤーのクラスをインポート・使用してマップ上に表示 Start
+            // 手順 3-2 フィーチャ レイヤーのクラスをインポート・使用してマップ上に表示 Start
       const FeatureLayer = await $arcgis.import("@arcgis/core/layers/FeatureLayer.js");
       // arcgis-map 要素の取得
       const arcgisMap = document.querySelector("arcgis-map");
 
       // FeatureLayer クラスのインスタンスを作成
       const layer = new FeatureLayer({
-          url: "https://services.arcgis.com/wlVTGRSYTzAbjjiC/arcgis/rest/services/ZENKOKU_PREF_view/FeatureServer",
+          portalItem: {
+            id: "d473d15a95e1420c96e2063d48720ef3"
+          },
           outFields: ["*"]
       });
-
+      
       // オプション 1-1 シンボルを定義する Start
 
       // 各階級に使うシンボルを定義
@@ -592,21 +589,22 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
           color: [255, 255, 255, 0.5],
         },
       };
+      const defaultSym = {
+        type: "simple-fill", 
+        color: "black",
+        style: "backward-diagonal",
+        outline: {
+          width: 0.5,
+          color: [50, 50, 50, 0.5],
+        },
+      };
       // オプション 1-1 シンボルを定義する End
-
+      
       // オプション 1-2 レンダラーの設定 Start
       const renderer = {
         type: "class-breaks", 
         field: "H_NUM", 
-        defaultSymbol: {
-          type: "simple-fill", 
-          color: "black",
-          style: "backward-diagonal",
-          outline: {
-            width: 0.5,
-            color: [50, 50, 50, 0.5],
-          },
-        },
+        defaultSymbol: defaultSym,
         defaultLabel: "no data",
         classBreakInfos: [
           {
@@ -669,8 +667,7 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
               });
       });
       // 手順 3-2 フィーチャ レイヤーのクラスをインポート・使用してマップ上に表示 End
-      
-      // 手順 4-3 各種 Calcite コンポーネントのイベント処理と追加 Start
+            // 手順 4-3 各種 Calcite コンポーネントのイベント処理と追加 Start
       // シェル パネル
       const shellPanel = document.querySelector("calcite-shell-panel");
       // 凡例のアクション ボタン
