@@ -203,7 +203,7 @@
     <!-- ヘッダー -->
     <!-- メニュー -->
     <!-- Shell Panel コンポーネント： パネル部分はデフォルトでは非表示 -->
-    <calcite-shell-panel slot="panel-end" position="end" display-mode="float-content" collapsed>
+    <calcite-shell-panel slot="panel-end" display-mode="float-content" collapsed>
       <calcite-action-bar slot="action-bar">
         <!-- Action コンポーネント： 押下することで凡例の表示・非表示を行う（処理は後ほど JavaScript にて記述） -->
         <calcite-action data-action-id="legend" icon="legend" text="凡例"></calcite-action>
@@ -287,7 +287,11 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 
 # オプション 1 : レンダラーを設定し、表示色を変更
 先ほど表示した都道府県界データは一色で表示されていました。
-ここではシンボルとレンダラーを設定し、フィールドの属性値に応じて表示色を変更します。
+この章ではシンボルとレンダラーを設定し、フィールドの属性値に応じて表示色を変更します。
+
+ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値に応じてどのシンボルを用いるかを制御するレンダラーを定義し、レイヤーに適用することで表示色が変更できます。
+![シンボルとレンダラー](./img/symbol.png)
+
 ## シンボルの設定
 表示の方法を変えるために、まず塗りつぶしの色や輪郭線の幅、透明度などグラフィックの見た目を表すシンボルを定義します。
 今回は薄い青色から濃い青色にかけて複数のシンボルを定義します。
@@ -505,7 +509,7 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
     <!-- ヘッダー -->
     <!-- メニュー -->
     <!-- Shell Panel コンポーネント： パネル部分はデフォルトでは非表示 -->
-    <calcite-shell-panel slot="panel-end" position="end" display-mode="float-content" collapsed>
+    <calcite-shell-panel slot="panel-end" display-mode="float-content" collapsed>
       <calcite-action-bar slot="action-bar">
         <!-- Action コンポーネント： 押下することで凡例の表示・非表示を行う（処理は後ほど JavaScript にて記述） -->
         <calcite-action data-action-id="legend" icon="legend" text="凡例"></calcite-action>
