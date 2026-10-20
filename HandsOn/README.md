@@ -62,7 +62,7 @@
 ```html
   <body>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
-    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
+    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5" popup-disabled>
       <arcgis-zoom position="top-left"></arcgis-zoom>
     </arcgis-map>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
@@ -169,7 +169,7 @@
     <!-- 手順 4-1-1 Calcite Design System の Shell コンポーネントを追加 End -->
 
       <!-- 手順 2-1 マップ コンポーネント： topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
-      <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
+      <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5" popup-disabled>
         <arcgis-zoom slot="top-left"></arcgis-zoom>
       </arcgis-map>
       <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
@@ -218,7 +218,7 @@
     <!-- 手順 4-2 Shell にヘッダーとメニューを追加 End -->
 
     <!-- 手順 2-1 マップ コンポーネント： topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
-    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
+    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5" popup-disabled>
       <arcgis-zoom slot="top-left"></arcgis-zoom>
     </arcgis-map>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
@@ -526,8 +526,8 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
     <!-- メニュー -->
     <!-- 手順 4-2 Shell にヘッダーとメニューを追加 End -->
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
-    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5">
-      <arcgis-zoom position="top-left"></arcgis-zoom>
+    <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5" popup-disabled>
+      <arcgis-zoom slot="top-left"></arcgis-zoom>
     </arcgis-map>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
     <!-- 手順 4-1-2 Calcite Design System の Shell コンポーネントを追加 Start -->
