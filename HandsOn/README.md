@@ -285,7 +285,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 
 凡例アクション ボタンの[クリック イベント](https://developer.mozilla.org/ja/docs/Web/API/Element/click_event)は一般的な HTML のイベントを取得していますが、凡例を表示している凡例パネルの閉じる（×）ボタンのクリック イベントは Calcite コンポーネント（[パネル コンポーネント](https://developers.arcgis.com/calcite-design-system/components/panel/#events)）独自のイベントを取得して処理をしています。
 
-# オプション 1 : レンダラーを設定し、表示色を変更
+# 手順 5 : レンダラーを設定し、表示色を変更
 先ほど表示した都道府県界データは一色で表示されていました。
 この章では属性値に応じて表示される色を変えてみましょう。ここでは世帯数の属性値に応じて変更します。
 ![属性値で色分け](./img/symbol.png)
@@ -311,7 +311,7 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
           outFields: ["*"]
       });
 
-      // オプション 1-1 シンボルを定義する Start
+      // 手順 5-1 シンボルを定義する Start
 
       // 各階級に使うシンボルを定義
        const less300000 = {
@@ -368,7 +368,7 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
           color: [50, 50, 50, 0.5],
         },
       };
-      // オプション 1-1 シンボルを定義する End
+      // 手順 5-1 シンボルを定義する End
       
       // arcgis-map 要素の準備を待つ
       await arcgisMap.componentOnReady();
@@ -392,9 +392,9 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
           color: [255, 255, 255, 0.5],
         },
       };
-      // オプション 1-1 シンボルを定義する End
+      // 手順 5-1 シンボルを定義する End
 
-      // オプション 1-2 レンダラーの設定 Start
+      // 手順 5-2 レンダラーの設定 Start
       const renderer = {
         type: "class-breaks", 
         field: "H_NUM", 
@@ -436,7 +436,7 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
 
       // レンダラーを適用
       layer.renderer = renderer;
-      // オプション 1-2 レンダラーを設定する End
+      // 手順 5-2 レンダラーを設定する End
 
       // arcgis-map 要素の準備を待つ
       await arcgisMap.componentOnReady();
@@ -446,28 +446,28 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
 
 ```
 
-![オプション 1 : レンダラーの適用](./img/option1.png)
+![オプション 1 : レンダラーの適用](./img/step5-2.png)
 
 
 # Calcite コンポーネントのデザインを変更
 
-## オプション 2 : ヘッダーの背景色を変更
+## オプション 1 : ヘッダーの背景色を変更
 1. `<style>` タグ内に新しいスタイル ルールを追記します。
 
 ```html
     <style>
       /** ～～ 中略 ～～ */
       }
-      /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する Start */
+      /* オプション 1  calcite-navigation 要素のヘッダー背景色を変更する Start */
       calcite-navigation {
         --calcite-navigation-background-color: yellow;
       }
-      /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する End */
+      /* オプション 1  calcite-navigation 要素のヘッダー背景色を変更する End */
     </style>
 ```
 CodePen を更新すると以下のようにヘッダー部分の背景色が変更されているのが確認できます。
 
-![オプション 2 : 凡例パネルのヘッダー デザインの変更](./img/option2.png)
+![オプション 1 : 凡例パネルのヘッダー デザインの変更](./img/option1.png)
 
 パネル コンポーネントに設定されている [CSS 変数](https://developers.arcgis.com/calcite-design-system/components/panel/#styles)を用いることでコンポーネントのデザインを変更することができます。このように Calcite コンポーネントのデザインを CSS 変数を用いることで変更することができます。
 
@@ -484,11 +484,11 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
         margin:0;
         padding:0;
       }
-      /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する Start */
+      /* オプション 1  calcite-navigation 要素のヘッダー背景色を変更する Start */
       calcite-navigation {
         --calcite-navigation-background-color: yellow;
       }
-      /* オプション 2  calcite-navigation 要素のヘッダー背景色を変更する End */
+      /* オプション 1  calcite-navigation 要素のヘッダー背景色を変更する End */
     </style>
         <!-- 手順 1-1 Calcite Design System と ArcGIS Maps SDK for JavaScript を使うために必要なライブラリーをロードする。 Start -->
     <!-- CDN から ArcGIS Maps SDK for JavaScript を読み込む -->
@@ -548,7 +548,7 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
           outFields: ["*"]
       });
       
-      // オプション 1-1 シンボルを定義する Start
+      // 手順 5-1 シンボルを定義する Start
 
       // 各階級に使うシンボルを定義
        const less300000 = {
@@ -605,9 +605,9 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
           color: [50, 50, 50, 0.5],
         },
       };
-      // オプション 1-1 シンボルを定義する End
+      // 手順 5-1 シンボルを定義する End
       
-      // オプション 1-2 レンダラーの設定 Start
+      // 手順 5-2 レンダラーの設定 Start
       const renderer = {
         type: "class-breaks", 
         field: "H_NUM", 
@@ -649,7 +649,7 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
 
       // レンダラーを適用
       layer.renderer = renderer;
-      // オプション 1-2 レンダラーを設定する End
+      // 手順 5-2 レンダラーを設定する End
 
       // arcgis-map 要素の準備を待つ
       await arcgisMap.componentOnReady();
