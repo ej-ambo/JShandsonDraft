@@ -63,7 +63,7 @@
   <body>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 Start -->
     <arcgis-map id="mapEl" basemap="topo-vector" center="138, 35.5" zoom="5" popup-disabled>
-      <arcgis-zoom position="top-left"></arcgis-zoom>
+      <arcgis-zoom slot="top-left"></arcgis-zoom>
     </arcgis-map>
     <!-- 手順 2-1 マップ コンポーネントで topo-vector ベースマップで日本を中心で表示。また、マップ上に拡大、縮小ボタンを表示 End -->
     <script></script>
@@ -83,7 +83,6 @@
 
 
 ここでは、[マップ コンポーネント](https://developers.arcgis.com/javascript/latest/references/map-components/)とマップ上に[拡大・縮小ボタン](https://developers.arcgis.com/javascript/latest/references/map-components/arcgis-zoom/)を設定しています。
-ブラウザーを更新すると以下のように日本列島を中心とするマップの画面が表示されます。
 
 ![手順 2 : 画面上にマップを表示](./img/step2.png)
 
@@ -148,7 +147,7 @@
     </script>
 ```
 
-ブラウザーを更新すると以下のように「全国都道府県界データ 2025」のレイヤーが表示され、任意の都道府県フィーチャをクリックすると画面上部にクリックしたフィーチャの情報が表示されます。
+以下のように「全国都道府県界データ 2025」のレイヤーが表示され、任意の都道府県フィーチャをクリックすると画面上部にクリックしたフィーチャの情報が表示されます。
 このデータは 2024 年 4 月 1 日時点の市区町村界情報を使用した ArcGIS Living Atlas のデータで無償で利用できます 。 アイテムの詳細は[アイテム ページ](https://esrij.maps.arcgis.com/home/item.html?id=d473d15a95e1420c96e2063d48720ef3#overview)を参照してください。
 
 
