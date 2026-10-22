@@ -287,7 +287,7 @@ Calcite コンポーネントにイベント処理を追加することで凡例
 # 手順 5 : レンダラーを設定し、表示色を変更
 先ほど表示した都道府県界データは一色で表示されていました。
 この章では属性値に応じて表示される色を変えてみましょう。ここでは世帯数の属性値に応じて変更します。
-![属性値で色分け](./img/symbol.png)
+![属性値で色分け](./img/step5.png)
 
 ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値に応じてどのシンボルを用いるかを制御するレンダラーを定義し、レイヤーに適用することで表示色が変更できます。
 シンボルの設定から順に進めます。
@@ -315,47 +315,47 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
       // 各階級に使うシンボルを定義
        const less300000 = {
         type: "simple-fill", 
-        color: "#eff3ff",
+        color: [239,243,255,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less500000 = {
         type: "simple-fill", 
-        color: "#bdd7e7",
+        color: [189,215,231,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less800000 = {
         type: "simple-fill", 
-        color: "#6baed6",
+        color: [107,174,214,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less1200000 = {
         type: "simple-fill", 
-        color: "#2171b5",
+        color: [33,113,181,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const more1200000 = {
         type: "simple-fill",
-        color: "#084594",
+        color: [8,69,148,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const defaultSym = {
@@ -363,8 +363,8 @@ ArcGIS Maps SDK for JavaScript では見た目を表すシンボルと属性値�
         color: "black",
         style: "backward-diagonal",
         outline: {
-          width: 0.5,
-          color: [50, 50, 50, 0.5],
+          width: 0.25,
+          color: [50, 50, 50, 1],
         },
       };
       // 手順 5-1 シンボルを定義する End
@@ -552,47 +552,47 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
       // 各階級に使うシンボルを定義
        const less300000 = {
         type: "simple-fill", 
-        color: "#eff3ff",
+        color: [239,243,255,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less500000 = {
         type: "simple-fill", 
-        color: "#bdd7e7",
+        color: [189,215,231,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less800000 = {
         type: "simple-fill", 
-        color: "#6baed6",
+        color: [107,174,214,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const less1200000 = {
         type: "simple-fill", 
-        color: "#2171b5",
+        color: [33,113,181,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const more1200000 = {
         type: "simple-fill",
-        color: "#084594",
+        color: [8,69,148,1],
         style: "solid",
         outline: {
-          width: 0.5,
-          color: [255, 255, 255, 0.5],
+          width: 0.25,
+          color: [0, 0, 0, 1],
         },
       };
       const defaultSym = {
@@ -600,8 +600,8 @@ CodePen を更新すると以下のようにヘッダー部分の背景色が変
         color: "black",
         style: "backward-diagonal",
         outline: {
-          width: 0.5,
-          color: [50, 50, 50, 0.5],
+          width: 0.25,
+          color: [50, 50, 50, 1],
         },
       };
       // 手順 5-1 シンボルを定義する End
